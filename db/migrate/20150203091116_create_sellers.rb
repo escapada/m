@@ -1,7 +1,6 @@
 class CreateSellers < ActiveRecord::Migration
   def change
-    create_table :sellers do |t|
-      t.integer :item_id
+    create_table :sellers do |t|     
       
       t.string  :name
       t.string  :company
