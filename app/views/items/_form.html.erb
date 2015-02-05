@@ -19,6 +19,10 @@
     <%= f.label :meta %><br>
     <%= f.text_field :meta %>
   </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select(:status, [1,2,3,4,5], promt: true) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
