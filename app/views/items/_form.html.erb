@@ -11,6 +11,96 @@
     </div>
   <% end %>
 
+<table id="createitem_tbl">
+
+  <tr class="heads"><td colspan="2">Страница</td></tr>
+  
+  <tr>
+    <td><%= f.label :meta, 'Описание, мета-тэги' %></td>
+    <td><%= f.text_field :meta %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :title, 'Заголовок (title)' %></td>
+    <td><%= f.text_field :title %></td>
+  </tr>
+
+  <tr class="heads"><td colspan="2">Судно</td></tr>
+
+  <tr>
+    <td><%= f.label :name, 'Название' %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :seller_id, 'Продавец' %></td>
+    <td><%= f.collection_select(:seller_id, Seller.all, :id, :name) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :operator, 'Оператор' %></td>
+    <td><%= f.text_field :operator %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :register_number, '№ ИМО / Регистровый № / Позывной' %></td>
+    <td><%= f.text_field :register_number %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :tbn, 'TBN' %></td>
+    <td><%= f.text_field :tbn %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :status, 'Статус' %></td>
+    <td><%= f.select(:status, ['продажа','предложение в аренду','покупка','необходим в аренду','снят с продажи или аренды','продано'], promt: true)%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :condition, 'Состояние' %></td>
+    <td><%= f.select(:condition, ['в эксплуатации','в постройке','в ремонте','в отстое','на утилизацию'], promt: true)%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :area, 'Район плавания' %></td>
+    <td><%= f.select(:area, ['неограниченный','море-ограниченный','река-море','прибрежный','озеро','река'], promt: true)%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :itemtype_id, 'Тип' %></td>
+    <td><%= f.collection_select(:itemtype_id, Itemtype.all, :id, :name) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :subtype, 'Подтип' %></td>
+    <td><%= f.text_field :subtype %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :appointment, 'Назначение' %></td>
+    <td><%= f.text_field :appointment %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :project, 'Проект' %></td>
+    <td><%= f.text_field :project %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :flag, 'Флаг' %></td>
+    <td><%= f.text_field :flag %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :registration, 'Реестр' %></td>
+    <td><%= f.select(:registration, ['государственный (основной)','бербоут-чартерный','международный','строящийся','внутренний','маломерный','временный'], promt: true)%></td>
+  </tr>
+
+
+  <tr>
+    <td><%= f.label :construction, 'Дата постройки' %></td>
+    <td><%= f.date_select :construction %></td>
+  </tr>
+  
+
+
+  <tr>
+    <td><%= f.label :construction_place, 'Место постройки' %></td>
+    <td><%= f.text_field :construction_place %></td>
+  </tr>
+
+
+
+</table>
+
+  
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -23,6 +113,9 @@
     <%= f.label :status %><br>
     <%= f.select(:status, [1,2,3,4,5], promt: true) %>
   </div>
+  
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

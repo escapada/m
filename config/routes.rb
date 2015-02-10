@@ -2,6 +2,7 @@ Marinerus::Application.routes.draw do
   resources :sellers
 
   resources :items
+  resources :eitems
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

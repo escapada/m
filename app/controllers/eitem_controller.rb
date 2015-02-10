@@ -1,0 +1,2 @@
+class EitemController < ApplicationController
+end
