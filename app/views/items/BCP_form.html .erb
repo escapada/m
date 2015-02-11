@@ -1,0 +1,144 @@
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table id="createitem_tbl">
+
+  <tr class="heads"><td colspan="2">Страница</td></tr>
+  
+  <tr>
+    <td><%= f.label :meta, 'Описание, мета-тэги' %></td>
+    <td><%= f.text_field :meta %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :title, 'Заголовок (title)' %></td>
+    <td><%= f.text_field :title %></td>
+  </tr>
+
+  <tr class="heads"><td colspan="2">Судно</td></tr>
+
+  <tr>
+    <td><%= f.label :name, 'Название' %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :seller_id, 'Продавец' %></td>
+    <td><%= f.collection_select(:seller_id, Seller.all, :id, :name) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :owner, 'Владелец' %></td>
+    <td><%= f.text_field :owner %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :operator, 'Оператор' %></td>
+    <td><%= f.text_field :operator %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :register_number, '№ ИМО / Регистровый № / Позывной' %></td>
+    <td><%= f.text_field :register_number %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :tbn, 'TBN' %></td>
+    <td><%= f.text_field :tbn %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :status, 'Статус' %></td>
+    <td><%= f.select(:status, ['продажа','предложение в аренду','покупка','необходим в аренду','снят с продажи или аренды','продано'])%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :condition, 'Состояние' %></td>
+    <td><%= f.select(:condition, ['в эксплуатации','в постройке','в ремонте','в отстое','на утилизацию'])%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :area, 'Район плавания' %></td>
+    <td><%= f.select(:area, ['неограниченный','море-ограниченный','река-море','прибрежный','озеро','река'])%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :itemtype_id, 'Тип' %></td>
+    <td><%= f.collection_select(:itemtype_id, Itemtype.all, :id, :name) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :subtype, 'Подтип' %></td>
+    <td><%= f.text_field :subtype %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :appointment, 'Назначение' %></td>
+    <td><%= f.text_field :appointment %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :project, 'Проект' %></td>
+    <td><%= f.text_field :project %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :flag, 'Флаг' %></td>
+    <td><%= f.text_field :flag %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :registration, 'Реестр' %></td>
+    <td><%= f.select(:registration, ['государственный (основной)','бербоут-чартерный','международный','строящийся','внутренний','маломерный','временный'])%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :construction, 'Дата постройки' %></td>
+    <td><%= f.date_select :construction, start_year: 1950, end_year: Date.today.year, use_month_numbers: true, discard_day: true, include_blank: true %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :construction_place, 'Место постройки' %></td>
+    <td><%= f.text_field :construction_place %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :renovation, 'Дата реновации' %></td>
+    <td><%= f.date_select :renovation, start_year: 1980, end_year: Date.today.year, use_month_numbers: true, discard_day: true, include_blank: true %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :registr, 'Регистр' %></td>
+    <td><%= f.select(:registr, ['1','2','3'])%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :registr_symbol, 'Символ Класса Регистра' %></td>
+    <td><%= f.text_field :registr_symbol %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :period_class, 'Срок действия класса' %></td>
+    <td><%= f.date_select :period_class, end_year: 2100, use_month_numbers: true, discard_day: true, include_blank: true %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :last_dock, 'Дата последнего дока' %></td>
+    <td><%= f.date_select :last_dock, start_year: 1980, end_year: Date.today.year, use_month_numbers: true, include_blank: true %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :next_dock, 'Дата следующего дока' %></td>
+    <td><%= f.date_select :next_dock, start_year: Date.today.year, end_year: 2100, use_month_numbers: true, discard_day: true, include_blank: true %></td>
+  </tr>
+
+
+</table>
+
+  
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :meta %><br>
+    <%= f.text_field :meta %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select(:status, [1,2,3,4,5]) %>
+  </div>
+  
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

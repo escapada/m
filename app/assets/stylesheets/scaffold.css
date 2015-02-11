@@ -3,6 +3,9 @@ body { background-color: #fff; color: #333;}
 
 p {text-align: justify;}
 
+.item_line{clear: both;}
+.item_div{float: left;}
+
 #createitem_tbl{}
 #createitem_tbl heads{}
 

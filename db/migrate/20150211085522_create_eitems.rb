@@ -1,8 +1,8 @@
-class CreateItems < ActiveRecord::Migration
+class CreateEitems < ActiveRecord::Migration
   def change
-    create_table :items do |t|  
+    create_table :eitems do |t|  
 
-        t.integer       :seller_id
+        t.integer       :item_id
         t.integer       :itemtype_id
 
         t.string        :meta
@@ -21,7 +21,7 @@ class CreateItems < ActiveRecord::Migration
         t.string        :project
         t.string        :flag
         t.string        :registration
-        t.date 			:construction
+        t.date 					:construction
         t.string        :construction_place
         t.date          :renovation
         t.string        :registr
