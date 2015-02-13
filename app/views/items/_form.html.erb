@@ -225,14 +225,27 @@
     <%= f.text_field :enginepower %>
   </div>
   <div class="item_div">
-    <%= f.select(:enginepowername, ['л.с','кВт']) %>
+    <%= f.select(:enginepowername, ['л.с.','кВт']) %>
+  </div>
+</div>
+<div class="item_line">
+  <div class="item_div">
+    <%= f.label :propulsion, 'Тип движетеля:' %>
+    <%= f.select(:propulsion, ['вал-винт','азимутальная колонка','винт регулируемого шага','водомёт','парус','весло'])%>
+  </div>
+  <div class="item_div">
+    <%= f.label :propulsionquantity, 'Кол-во движетелей:' %>
+    <%= f.text_field :propulsionquantity %>
   </div>
 </div>
 
 
 <div class="item_line">
   <div class="item_div">
-    
+    <%= f.label :fuel, 'Тип топлива:' %>
+    <%= f.select(:fuel, ['','','','','',''])%>
+  </div>
+  <div class="item_div">
   </div>
 </div>
 <div class="item_line">

@@ -42,8 +42,8 @@ class CreateItems < ActiveRecord::Migration
         t.float         :loading
         t.float         :displacement
         t.float         :dockweight
-        t.float         :tanks
-        t.string        :tanksvolume
+        t.integer       :tanks
+        t.float         :tanksvolume
         t.integer       :passengers
         t.string        :enginetype
         t.string        :enginemodel
