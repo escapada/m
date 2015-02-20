@@ -58,6 +58,7 @@ class CreateItems < ActiveRecord::Migration
         t.float         :fuel_port
         t.string        :autonomy
         t.float         :speed
+        t.string        :speedname
         t.string        :gmdss
         t.decimal       :crewprice, precision: 10, scale: 2
         t.string        :crewpricename
@@ -65,11 +66,11 @@ class CreateItems < ActiveRecord::Migration
         t.string        :hulltype
         t.string        :hullmaterial
         t.string        :supermaterial
-        t.boolean       :tanksheating
-        t.boolean       :tankscooling
-        t.boolean       :double_board
-        t.boolean       :double_bottom
-        t.boolean       :double_hull
+        t.string        :tanksheating
+        t.string        :tankscooling
+        t.string        :double_board
+        t.string        :double_bottom
+        t.string        :double_hull
         t.string        :diesel
         t.string        :sternthrusters
         t.string        :stabilizers

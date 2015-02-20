@@ -21,7 +21,7 @@ class CreateEitems < ActiveRecord::Migration
         t.string        :project
         t.string        :flag
         t.string        :registration
-        t.date 					:construction
+        t.date			:construction
         t.string        :construction_place
         t.date          :renovation
         t.string        :registr

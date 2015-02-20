@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(version: 20150211091022) do
     t.float    "fuel_port"
     t.string   "autonomy"
     t.float    "speed"
+    t.string   "speedname"
     t.string   "gmdss"
     t.decimal  "crewprice",          precision: 10, scale: 2
     t.string   "crewpricename"
