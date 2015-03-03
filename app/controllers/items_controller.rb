@@ -69,6 +69,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :meta)
+      params.require(:item).permit(:seller_id, :itemtype_id, :meta, :title, :name, :owner, :operator, :register_number, :tbn, :status, :condition, :area, :subtype, :appointment, :project, :flag, :registration, :construction, :construction_place, :renovation, :registr, :registr_symbol, :period_class, :last_dock, :next_dock, :length, :width, :height, :free_board, :max_draught, :min_draught, :air_draught, :gross_tonnage, :net_tonnage, :deadweight, :loading, :displacement, :dockweight, :tanks, :tanksvolume, :passengers, :enginetype, :enginemodel, :enginequantity, :enginepower, :enginepowername, :propulsion, :propulsionquantity, :fuel, :fuelcapacity, :fuel_way, :fuel_port, :autonomy, :speed, :speedname, :gmdss, :crewprice, :crewpricename, :crewpricetax, :hulltype, :hullmaterial, :supermaterial, :tanksheating, :tankscooling, :double_board, :double_bottom, :double_hull, :diesel, :sternthrusters, :stabilizers, :winch, :hook, :cablelength, :cranes, :craneloading, :sails, :sailsarea, :location, :price, :pricename, :pricetax, :info)
     end
 end
