@@ -1,15 +1,21 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '~> 4.2.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'mysql2', '0.3.15'
 
+#version for bootstrap properly working
+#gem 'sprockets-rails', '~> 2.1.4'
+
+#bootstrap-sass
+gem 'bootstrap-sass', '~> 3.3.2'
+
 # Use SCSS for stylesheets and CoffeeScript for .js.coffee assets and views
-#gem 'sass-rails', '~> 4.0.0'
-#gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.0'
+#gem 'coffee-rails', '~> 4.1.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
