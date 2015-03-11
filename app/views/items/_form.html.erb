@@ -11,410 +11,353 @@
     </div>
   <% end %>
 
-##
-##
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"><%= f.label :meta, 'Описание, мета-тэги:' %></div>
+    <div class="col-md-4"><%= f.text_field :meta, size: 50 %></div>
+    <div class="col-md-4 hide-eng"><%= f.text_field :meta, size: 50 %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :title, 'Заголовок (title):' %></div>
+    <div class="col-md-4"><%= f.text_field :title, size: 50 %></div>
+    <div class="col-md-4 hide-eng"><%= f.text_field :title, size: 50 %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :name, 'Название:' %></div>
+    <div class="col-md-4"><%= f.text_field :name, size: 50 %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :seller_id, 'Продавец:' %></div>
+    <div class="col-md-4"><%= f.collection_select(:seller_id, Seller.all, :id, :name) %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :owner, 'Владелец:' %></div>
+    <div class="col-md-4"><%= f.text_field :owner %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :operator, 'Оператор:' %></div>
+    <div class="col-md-4"><%= f.text_field :operator %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :register_number, '№ ИМО / Регистровый № / Позывной:' %></div>
+    <div class="col-md-4"><%= f.text_field :register_number %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :tbn, 'TBN:' %></div>
+    <div class="col-md-4"><%= f.text_field :tbn %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :status, 'Статус:' %></div>
+    <div class="col-md-4"><%= f.select(:status, ['продажа','предложение в аренду','покупка','необходим в аренду','снят с продажи или аренды','продано'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :condition, 'Состояние:' %></div>
+    <div class="col-md-4"><%= f.select(:condition, ['в эксплуатации','в постройке','в ремонте','в отстое','на утилизацию'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :area, 'Район плавания:' %></div>
+    <div class="col-md-4"><%= f.select(:area, ['неограниченный','море-ограниченный','река-море','прибрежный','озеро','река'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :itemtype_id, 'Тип:' %></div>
+    <div class="col-md-4"><%= f.collection_select(:itemtype_id, Itemtype.all, :id, :name) %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :subtype, 'Подтип:' %></div>
+    <div class="col-md-4"><%= f.text_field :subtype %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :appointment, 'Назначение:' %></div>
+    <div class="col-md-4"><%= f.text_field :appointment %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :project, 'Проект:' %></div>
+    <div class="col-md-4"><%= f.text_field :project %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :flag, 'Флаг:' %></div>
+    <div class="col-md-4"><%= f.text_field :flag %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :registration, 'Реестр:' %></div>
+    <div class="col-md-4"><%= f.select(:registration, ['государственный (основной)','бербоут-чартерный','международный','строящийся','внутренний','маломерный','временный'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :construction, 'Дата постройки:' %></div>
+    <div class="col-md-4"><%= f.date_select :construction, start_year: 1950, end_year: Date.today.year, use_month_numbers: true, discard_day: true, include_blank: true %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :construction_place, 'Место постройки:' %></div>
+    <div class="col-md-4"><%= f.text_field :construction_place %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :renovation, 'Дата реновации:' %></div>
+    <div class="col-md-4"><%= f.date_select :renovation, start_year: 1980, end_year: Date.today.year, use_month_numbers: true, discard_day: true, include_blank: true %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :registr, 'Регистр:' %></div>
+    <div class="col-md-4"><%= f.select(:registr, ['1','2','3'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :registr_symbol, 'Символ Класса Регистра:' %></div>
+    <div class="col-md-4"><%= f.text_field :registr_symbol %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :period_class, 'Срок действия класса:' %></div>
+    <div class="col-md-4"><%= f.date_select :period_class, end_year: 2100, use_month_numbers: true, discard_day: true, include_blank: true %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :last_dock, 'Дата последнего дока:' %></div>
+    <div class="col-md-4"><%= f.date_select :last_dock, start_year: 1980, end_year: Date.today.year, use_month_numbers: true, include_blank: true %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :next_dock, 'Дата следующего дока:' %></div>
+    <div class="col-md-4"><%= f.date_select :next_dock, start_year: Date.today.year, end_year: 2100, use_month_numbers: true, include_blank: true %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :length, 'Длина:' %></div>
+    <div class="col-md-4"><%= f.text_field :length %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :width, 'Ширина:' %></div>
+    <div class="col-md-4"><%= f.text_field :width %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :height, 'Высота борта:' %></div>
+    <div class="col-md-4"><%= f.text_field :height %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :free_board, 'Надводный борт:' %></div>
+    <div class="col-md-4"><%= f.text_field :free_board %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :max_draught, 'Макс. осадка:' %></div>
+    <div class="col-md-4"><%= f.text_field :max_draught %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :min_draught, 'Мин. осадка:' %></div>
+    <div class="col-md-4"><%= f.text_field :min_draught %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :air_draught, 'Надводный габарит:' %></div>
+    <div class="col-md-4"><%= f.text_field :air_draught %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :gross_tonnage, 'Валовая вместимость:' %></div>
+    <div class="col-md-4"><%= f.text_field :gross_tonnage %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :net_tonnage, 'Чистая вместимость:' %></div>
+    <div class="col-md-4"><%= f.text_field :net_tonnage %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :deadweight, 'Дедвейт:' %></div>
+    <div class="col-md-4"><%= f.text_field :deadweight %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :loading, 'Грузоподъёмность:' %></div>
+    <div class="col-md-4"><%= f.text_field :loading %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :displacement, 'Водоизмещение:' %></div>
+    <div class="col-md-4"><%= f.text_field :displacement %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :dockweight, 'Доковый вес:' %></div>
+    <div class="col-md-4"><%= f.text_field :dockweight %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :tanks, 'Кол-во грузовых помещений:' %></div>
+    <div class="col-md-4"><%= f.text_field :tanks %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :tanksvolume, 'Объём грузовых помещений:' %></div>
+    <div class="col-md-4"><%= f.text_field :tanksvolume %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :passengers, 'Пассажировместимость:' %></div>
+    <div class="col-md-4"><%= f.text_field :passengers %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :enginetype, 'Тип двигателя:' %></div>
+    <div class="col-md-4"><%= f.text_field :enginetype %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :enginemodel, 'Модель двигателя:' %></div>
+    <div class="col-md-4"><%= f.text_field :enginemodel %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :enginequantity, 'Кол-во главных двигателей:' %></div>
+    <div class="col-md-4"><%= f.text_field :enginequantity %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :enginepower, 'Мощность главных двигателей:' %></div>
+    <div class="col-md-4"><%= f.text_field :enginepower %><%= f.select(:enginepowername, ['л.с.','кВт'], include_blank: true) %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :propulsion, 'Тип движетеля:' %></div>
+    <div class="col-md-4"><%= f.select(:propulsion, ['вал-винт','азимутальная колонка','винт регулируемого шага','водомёт','парус','весло'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :propulsionquantity, 'Кол-во движетелей:' %></div>
+    <div class="col-md-4"><%= f.text_field :propulsionquantity %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :fuel, 'Тип топлива:' %></div>
+    <div class="col-md-4"><%= f.select(:fuel, ['дизельное','моторное','бензин','ядерное','твёрдое'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :fuelcapacity, 'Запас топлива:' %></div>
+    <div class="col-md-4"><%= f.text_field :fuelcapacity %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :fuel_way, 'Расход топлива на ходу:' %></div>
+    <div class="col-md-4"><%= f.text_field :fuel_way %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :fuel_port, 'Расход топлива на стоянке:' %></div>
+    <div class="col-md-4"><%= f.text_field :fuel_port %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :autonomy, 'Автономность:' %></div>
+    <div class="col-md-4"><%= f.text_field :autonomy %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :speed, 'Скорость:' %></div>
+    <div class="col-md-4"><%= f.text_field :speed %><%= f.select(:speedname, ['узлов','км/ч'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :gmdss, 'ГМССБ:' %></div>
+    <div class="col-md-4"><%= f.select(:gmdss, ['А1', 'А1+А2', 'А1+А2+А3', 'А1+А2+А3+А4', 'ВВП'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :crewprice, 'Экипаж:' %></div>
+    <div class="col-md-4"><%= f.text_field :crewprice %><%= f.select(:crewpricename, ['руб.','доллар.','евро'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :crewpricetax, 'НДС:' %></div>
+    <div class="col-md-4"><%= f.select(:crewpricetax, ['С учётом НДС','Без учёта НДС', 'НДС нет'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :hulltype, 'Тип корпуса:' %></div>
+    <div class="col-md-4"><%= f.select(:hulltype, ['водоизмещающий','полуводоизмещающий', 'глиссирующий', 'СПК', 'СВП', 'экраноплан'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :hullmaterial, 'Материал корпуса:' %></div>
+    <div class="col-md-4"><%= f.select(:hullmaterial, ['сталь','алюминий', 'композит', 'пластик', 'железобетон', 'дерево'], include_blank: 'нет информации')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :supermaterial, 'Материал надстройки:' %></div>
+    <div class="col-md-4"><%= f.select(:supermaterial, ['сталь','алюминий', 'композит', 'пластик', 'железобетон', 'дерево'], include_blank: 'нет информации')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :tanksheating, 'Подогрев грузовых помещений:' %></div>
+    <div class="col-md-4"><%= f.select(:tanksheating, ['да','нет'], include_blank: 'неизвестно')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :tankscooling, 'Охлаждение грузовых помещений:' %></div>
+    <div class="col-md-4"><%= f.select(:tankscooling, ['да','нет'], include_blank: 'неизвестно')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :tankscooling, 'Охлаждение грузовых помещений:' %></div>
+    <div class="col-md-4"><%= f.select(:tankscooling, ['да','нет'], include_blank: 'неизвестно')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :double_board, 'Двойные борта:' %></div>
+    <div class="col-md-4"><%= f.select(:double_board, ['да','нет'], include_blank: 'неизвестно')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :double_board, 'Двойное дно:' %></div>
+    <div class="col-md-4"><%= f.select(:double_board, ['да','нет'], include_blank: 'неизвестно')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :double_board, 'Двойной корпус:' %></div>
+    <div class="col-md-4"><%= f.select(:double_board, ['да','нет'], include_blank: 'неизвестно')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :double_board, 'Двойной корпус:' %></div>
+    <div class="col-md-4"><%= f.select(:double_board, ['да','нет'], include_blank: 'неизвестно')%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :diesel, 'Дизельгенераторы:' %></div>
+    <div class="col-md-4"><%= f.text_field :diesel %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :sternthrusters, 'Подруливающее устройство:' %></div>
+    <div class="col-md-4"><%= f.text_field :sternthrusters %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :stabilizers, 'Стабилизаторы качки:' %></div>
+    <div class="col-md-4"><%= f.text_field :stabilizers %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :winch, 'Буксирная лебёдка:' %></div>
+    <div class="col-md-4"><%= f.text_field :winch %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :hook, 'Тяга на гаке:' %></div>
+    <div class="col-md-4"><%= f.text_field :hook %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :cablelength, 'Длина буксирного троса:' %></div>
+    <div class="col-md-4"><%= f.text_field :cablelength %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :cranes, 'Кол-во кранов:' %></div>
+    <div class="col-md-4"><%= f.text_field :cranes %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :craneloading, 'Грузоподъёмность крана:' %></div>
+    <div class="col-md-4"><%= f.text_field :craneloading %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :sails, 'Кол-во парусов:' %></div>
+    <div class="col-md-4"><%= f.text_field :sails %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :sailsarea, 'Общая площадь парусов:' %></div>
+    <div class="col-md-4"><%= f.text_field :sailsarea %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :location, 'Местонахождение:' %></div>
+    <div class="col-md-4"><%= f.text_field :location %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :price, 'Стоимость:' %></div>
+    <div class="col-md-4"><%= f.text_field :price %><%= f.select(:pricename, ['руб.','доллар.','евро'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :pricetax, 'НДС:' %></div>
+    <div class="col-md-4"><%= f.select(:pricetax, ['С учётом НДС','Без учёта НДС', 'НДС нет'], include_blank: true)%></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :info, 'Дополнительная информация:' %></div>
+    <div class="col-md-4"><%= f.text_area :info %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4"></div>
+  </div>
 
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :meta, 'Описание, мета-тэги:' %>
-    <%= f.text_field :meta, size: 40 %>
-  </div>
-  <div class="item_div">
-    <%= f.label :title, 'Заголовок (title):' %>
-    <%= f.text_field :title, size: 40 %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :name, 'Название:' %>
-    <%= f.text_field :name %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :seller_id, 'Продавец:' %>
-    <%= f.collection_select(:seller_id, Seller.all, :id, :name) %>
-  </div>
-  <div class="item_div">
-    <%= f.label :owner, 'Владелец:' %>
-    <%= f.text_field :owner %>
-  </div>
-  <div class="item_div">
-    <%= f.label :operator, 'Оператор:' %>
-    <%= f.text_field :operator %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :register_number, '№ ИМО / Регистровый № / Позывной:' %>
-    <%= f.text_field :register_number %>
-  </div>
-  <div class="item_div">
-    <%= f.label :tbn, 'TBN:' %>
-    <%= f.text_field :tbn %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :status, 'Статус:' %>
-    <%= f.select(:status, ['продажа','предложение в аренду','покупка','необходим в аренду','снят с продажи или аренды','продано'], include_blank: true)%>
-  </div>
-  <div class="item_div">
-    <%= f.label :condition, 'Состояние:' %>
-    <%= f.select(:condition, ['в эксплуатации','в постройке','в ремонте','в отстое','на утилизацию'], include_blank: true)%>
-  </div>
-  <div class="item_div">
-    <%= f.label :area, 'Район плавания:' %>
-    <%= f.select(:area, ['неограниченный','море-ограниченный','река-море','прибрежный','озеро','река'], include_blank: true)%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :itemtype_id, 'Тип:' %>
-    <%= f.collection_select(:itemtype_id, Itemtype.all, :id, :name) %>
-  </div>
-  <div class="item_div">
-    <%= f.label :subtype, 'Подтип:' %>
-    <%= f.text_field :subtype %>
-  </div>
-  <div class="item_div">
-    <%= f.label :appointment, 'Назначение:' %>
-    <%= f.text_field :appointment %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :project, 'Проект:' %>
-    <%= f.text_field :project %>
-  </div>
-  <div class="item_div">
-    <%= f.label :flag, 'Флаг:' %>
-    <%= f.text_field :flag %>
-  </div>
-  <div class="item_div">
-    <%= f.label :registration, 'Реестр:' %>
-    <%= f.select(:registration, ['государственный (основной)','бербоут-чартерный','международный','строящийся','внутренний','маломерный','временный'], include_blank: true)%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :construction, 'Дата постройки:' %>
-    <%= f.date_select :construction, start_year: 1950, end_year: Date.today.year, use_month_numbers: true, discard_day: true, include_blank: true %>
-  </div>
-  <div class="item_div">
-    <%= f.label :construction_place, 'Место постройки:' %>
-    <%= f.text_field :construction_place %>
-  </div>
-  <div class="item_div">
-    <%= f.label :renovation, 'Дата реновации:' %>
-    <%= f.date_select :renovation, start_year: 1980, end_year: Date.today.year, use_month_numbers: true, discard_day: true, include_blank: true %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :registr, 'Регистр:' %>
-    <%= f.select(:registr, ['1','2','3'], include_blank: true)%>
-  </div>
-  <div class="item_div">
-    <%= f.label :registr_symbol, 'Символ Класса Регистра:' %>
-    <%= f.text_field :registr_symbol %>
-  </div>
-  <div class="item_div">
-    <%= f.label :period_class, 'Срок действия класса:' %>
-    <%= f.date_select :period_class, end_year: 2100, use_month_numbers: true, discard_day: true, include_blank: true %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :last_dock, 'Дата последнего дока:' %>
-    <%= f.date_select :last_dock, start_year: 1980, end_year: Date.today.year, use_month_numbers: true, include_blank: true %>
-  </div>
-  <div class="item_div">
-    <%= f.label :next_dock, 'Дата следующего дока:' %>
-<%= f.date_select :next_dock, start_year: Date.today.year, end_year: 2100, use_month_numbers: true, include_blank: true %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :length, 'Длина:' %>
-    <%= f.text_field :length %>
-  </div>
-  <div class="item_div">
-    <%= f.label :width, 'Ширина:' %>
-    <%= f.text_field :width %>
-  </div>
-  <div class="item_div">
-    <%= f.label :height, 'Высота борта:' %>
-    <%= f.text_field :height %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :free_board, 'Надводный борт:' %>
-    <%= f.text_field :free_board %>
-  </div>
-  <div class="item_div">
-    <%= f.label :max_draught, 'Макс. осадка:' %>
-    <%= f.text_field :max_draught %>
-  </div>
-  <div class="item_div">
-    <%= f.label :min_draught, 'Мин. осадка:' %>
-    <%= f.text_field :min_draught %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :air_draught, 'Надводный габарит:' %>
-    <%= f.text_field :air_draught %>
-  </div>
-  <div class="item_div">
-    <%= f.label :gross_tonnage, 'Валовая вместимость:' %>
-    <%= f.text_field :gross_tonnage %>
-  </div>
-  <div class="item_div">
-    <%= f.label :net_tonnage, 'Чистая вместимость:' %>
-    <%= f.text_field :net_tonnage %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :deadweight, 'Дедвейт:' %>
-    <%= f.text_field :deadweight %>
-  </div>
-  <div class="item_div">
-    <%= f.label :loading, 'Грузоподъёмность:' %>
-    <%= f.text_field :loading %>
-  </div>
-  <div class="item_div">
-    <%= f.label :displacement, 'Водоизмещение:' %>
-    <%= f.text_field :displacement %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :dockweight, 'Доковый вес:' %>
-    <%= f.text_field :dockweight %>
-  </div>
-  <div class="item_div">
-    <%= f.label :tanks, 'Кол-во грузовых помещений:' %>
-    <%= f.text_field :tanks %>
-  </div>
-  <div class="item_div">
-    <%= f.label :tanksvolume, 'Объём грузовых помещений:' %>
-    <%= f.text_field :tanksvolume %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :passengers, 'Пассажировместимость:' %>
-    <%= f.text_field :passengers %>
-  </div>
-  <div class="item_div">
-    <%= f.label :enginetype, 'Тип двигателя:' %>
-    <%= f.text_field :enginetype %>
-  </div>
-  <div class="item_div">
-    <%= f.label :enginemodel, 'Модель двигателя:' %>
-    <%= f.text_field :enginemodel %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :enginequantity, 'Кол-во главных двигателей:' %>
-    <%= f.text_field :enginequantity %>
-  </div>
-  <div class="item_div">
-    <%= f.label :enginepower, 'Мощность главных двигателей:' %>
-    <%= f.text_field :enginepower %>
-  </div>
-  <div class="item_div">
-    <%= f.select(:enginepowername, ['л.с.','кВт'], include_blank: true) %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :propulsion, 'Тип движетеля:' %>
-    <%= f.select(:propulsion, ['вал-винт','азимутальная колонка','винт регулируемого шага','водомёт','парус','весло'], include_blank: true)%>
-  </div>
-  <div class="item_div">
-    <%= f.label :propulsionquantity, 'Кол-во движетелей:' %>
-    <%= f.text_field :propulsionquantity %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :fuel, 'Тип топлива:' %>
-    <%= f.select(:fuel, ['дизельное','моторное','бензин','ядерное','твёрдое'], include_blank: true)%>
-  </div>
-  <div class="item_div">
-    <%= f.label :fuelcapacity, 'Запас топлива:' %>
-    <%= f.text_field :fuelcapacity %>
-  </div>
-  <div class="item_div">
-    <%= f.label :fuel_way, 'Расход топлива на ходу:' %>
-    <%= f.text_field :fuel_way %>
-  </div>
-  <div class="item_div">
-    <%= f.label :fuel_port, 'Расход топлива на стоянке:' %>
-    <%= f.text_field :fuel_port %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :autonomy, 'Автономность:' %>
-    <%= f.text_field :autonomy %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :speed, 'Скорость:' %>
-    <%= f.text_field :speed %>
-  </div>
-  <div class="item_div">
-    <%= f.select(:speedname, ['узлов','км/ч'], include_blank: true)%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :gmdss, 'ГМССБ:' %>
-    <%= f.select(:gmdss, ['А1', 'А1+А2', 'А1+А2+А3', 'А1+А2+А3+А4', 'ВВП'], include_blank: true)%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :crewprice, 'Экипаж:' %>
-    <%= f.text_field :crewprice %>
-  </div>
-  <div class="item_div">
-    <%= f.select(:crewpricename, ['руб.','доллар.','евро'], include_blank: true)%>
-  </div>
-  <div class="item_div">
-    <%= f.label :crewpricetax, 'НДС:' %>
-    <%= f.select(:crewpricetax, ['С учётом НДС','Без учёта НДС', 'НДС нет'], include_blank: true)%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :hulltype, 'Тип корпуса:' %>
-    <%= f.select(:hulltype, ['водоизмещающий','полуводоизмещающий', 'глиссирующий', 'СПК', 'СВП', 'экраноплан'], include_blank: true)%>
-  </div>
-  <div class="item_div">
-    <%= f.label :hullmaterial, 'Материал корпуса:' %>
-    <%= f.select(:hullmaterial, ['сталь','алюминий', 'композит', 'пластик', 'железобетон', 'дерево'], include_blank: 'нет информации')%>
-  </div>
-  <div class="item_div">
-    <%= f.label :supermaterial, 'Материал надстройки:' %>
-    <%= f.select(:supermaterial, ['сталь','алюминий', 'композит', 'пластик', 'железобетон', 'дерево'], include_blank: 'нет информации')%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :tanksheating, 'Подогрев грузовых помещений:' %>
-    <%= f.select(:tanksheating, ['да','нет'], include_blank: 'неизвестно')%>
-  </div>
-  <div class="item_div">
-    <%= f.label :tankscooling, 'Охлаждение грузовых помещений:' %>
-    <%= f.select(:tankscooling, ['да','нет'], include_blank: 'неизвестно')%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :double_board, 'Двойные борта:' %>
-    <%= f.select(:double_board, ['да','нет'], include_blank: 'неизвестно')%>
-  </div>
-  <div class="item_div">
-    <%= f.label :double_board, 'Двойное дно:' %>
-    <%= f.select(:double_board, ['да','нет'], include_blank: 'неизвестно')%>
-  </div>
-  <div class="item_div">
-    <%= f.label :double_board, 'Двойной корпус:' %>
-    <%= f.select(:double_board, ['да','нет'], include_blank: 'неизвестно')%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :diesel, 'Дизельгенераторы:' %>
-    <%= f.text_field :diesel %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :sternthrusters, 'Подруливающее устройство:' %>
-    <%= f.text_field :sternthrusters %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :stabilizers, 'Стабилизаторы качки:' %>
-    <%= f.text_field :stabilizers %>
-  </div>
+
 </div>
 
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :winch, 'Буксирная лебёдка:' %>
-    <%= f.text_field :winch %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :hook, 'Тяга на гаке:' %>
-    <%= f.text_field :hook %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :cablelength, 'Длина буксирного троса:' %>
-    <%= f.text_field :cablelength %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :cranes, 'Кол-во кранов:' %>
-    <%= f.text_field :cranes %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :craneloading, 'Грузоподъёмность крана:' %>
-    <%= f.text_field :craneloading %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :sails, 'Кол-во парусов:' %>
-    <%= f.text_field :sails %>
-  </div>
-  <div class="item_div">
-    <%= f.label :sailsarea, 'Общая площадь парусов:' %>
-    <%= f.text_field :sailsarea %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :location, 'Местонахождение:' %>
-    <%= f.text_field :location %>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :price, 'Стоимость:' %>
-    <%= f.text_field :price %>
-  </div>
-  <div class="item_div">
-    <%= f.select(:pricename, ['руб.','доллар.','евро'], include_blank: true)%>
-  </div>
-  <div class="item_div">
-    <%= f.label :pricetax, 'НДС:' %>
-    <%= f.select(:pricetax, ['С учётом НДС','Без учёта НДС', 'НДС нет'], include_blank: true)%>
-  </div>
-</div>
-<div class="item_line">
-  <div class="item_div">
-    <%= f.label :info, 'Дополнительная информация:' %>
-    <%= f.text_area :info %>
-  </div>
-</div>
+
+
+
+<!--   <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4"></div>
+  </div> -->
+<br />
 
 
 <div class="actions">
