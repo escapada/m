@@ -13,18 +13,19 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-md-2"><%= f.label :name, 'Название:' %></div>
+    <div class="col-md-4"><%= f.text_field :name, size: 43 %></div>
+    <div class="col-md-4 hide-eng"><%= f.text_field :meta, size: 43 %></div>
+  </div>
+  <div class="row">
     <div class="col-md-2"><%= f.label :meta, 'Описание, мета-тэги:' %></div>
-    <div class="col-md-4"><%= f.text_field :meta, size: 50 %></div>
-    <div class="col-md-4 hide-eng"><%= f.text_field :meta, size: 50 %></div>
+    <div class="col-md-4"><%= f.text_field :meta, size: 43 %></div>
+    <div class="col-md-4 hide-eng"><%= f.text_field :meta, size: 43 %></div>
   </div>
   <div class="row">
     <div class="col-md-2"><%= f.label :title, 'Заголовок (title):' %></div>
-    <div class="col-md-4"><%= f.text_field :title, size: 50 %></div>
-    <div class="col-md-4 hide-eng"><%= f.text_field :title, size: 50 %></div>
-  </div>
-  <div class="row">
-    <div class="col-md-2"><%= f.label :name, 'Название:' %></div>
-    <div class="col-md-4"><%= f.text_field :name, size: 50 %></div>
+    <div class="col-md-4"><%= f.text_field :title, size: 43 %></div>
+    <div class="col-md-4 hide-eng"><%= f.text_field :title, size: 43 %></div>
   </div>
   <div class="row">
     <div class="col-md-2"><%= f.label :seller_id, 'Продавец:' %></div>

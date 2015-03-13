@@ -14,7 +14,8 @@ gem 'mysql2', '0.3.15'
 gem 'bootstrap-sass', '~> 3.3.2'
 
 # Use SCSS for stylesheets and CoffeeScript for .js.coffee assets and views
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0.0'
+gem 'sass', '~> 3.4.13'
 #gem 'coffee-rails', '~> 4.1.0'
 
 # Use Uglifier as compressor for JavaScript assets
